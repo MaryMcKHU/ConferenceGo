@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     const formTag = document.getElementById('create-location-form');
-    formTag.addEventListener('submit', event => {
+    formTag.addEventListener('submit', async function(event) {
         event.preventDefault();
         const formData = new FormData(formTag);
         const json = JSON.stringify(Object.fromEntries(formData));
@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         if (response.ok) {
             formTag.reset();
             const newLocation = await response.json();
+            console.log(newLocation);
         }
     });
 });
