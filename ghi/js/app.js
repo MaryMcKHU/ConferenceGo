@@ -16,8 +16,7 @@ function createCard(name, description, pictureUrl, startString, endString, locat
 function alert() {
     return `
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong>Error</strong> Something has gone wrong. Please try again.
       </div>
     `;
 }
@@ -31,6 +30,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(url);
         
         if (!response.ok) {
+            const html = alert();
+            const error = document.querySelector('.error');
+            error.innerHTML += html;
             throw new Error(alert)
         } else {
             const data = await response.json();
