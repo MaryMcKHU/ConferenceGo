@@ -59,7 +59,7 @@ class Conference(models.Model):
 
     # Has a one-to-many relationship with presentations.Presentation
     # Has a one-to-many relationship with attendees.Attendee
-
+    id = models.PositiveIntegerField(primary_key=True)
     name = models.CharField(max_length=200)
     starts = models.DateTimeField()
     ends = models.DateTimeField()
