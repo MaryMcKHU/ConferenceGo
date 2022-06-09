@@ -235,7 +235,7 @@ def api_list_states(request):
     state_list = []
 
     for state in states:
-        d = {"name": state.name, "abbreviation":state.abbreviation}
+        d = {"name": state.name, "abbreviation": state.abbreviation}
         state_list.append(d)
     return JsonResponse({"state": state_list})
 
