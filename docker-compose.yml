@@ -93,3 +93,14 @@ services:
       - POSTGRES_PASSWORD=test-databases
     ports:
       - 15432:5432
+  react-attendees: # creating a new service from the Nose.js image
+    image: node:latest
+    command: npm start # what should run when it starts; npm start is how we run the React app
+    working_dir: /app # sets the working directory
+    volumes: # doing that directory attachment (inside the container, app directory will be looking at the attendees directory)
+      - ./ghi/attendees:/app
+    environment: # tells the React development Web server to bind to all ports and run on port 3001
+      - HOST=0.0.0.0
+      - PORT=3001
+    ports: # maps the external port to port 3001 - this way, when we type localhost 3001 into the browser, we see the running React application
+      - "3001:3001"
