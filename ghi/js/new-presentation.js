@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         event.preventDefault();
         const formData = new FormData(formTag);
         const json = JSON.stringify(Object.fromEntries(formData));
-        let presentationUrl = 'http://localhost:8000/api/conferences/{id}/presentations/';
+        let presentationUrl = 'http://localhost:8000/api/conferences/{}/presentations/';
         const fetchConfig = {
           method: "post",
           body: json,
@@ -35,3 +35,11 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     });
 });
+
+var select = document.getElementById('s');
+
+// return the index of the selected option
+console.log(select.selectedIndex); // 1
+
+// return the value of the selected option
+console.log(select.options[select.selectedIndex].value)
