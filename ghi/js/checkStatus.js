@@ -16,6 +16,5 @@ window.addEventListener("DOMContentLoaded", async () => {
       const newLocationTag = document.querySelector("[href='new-location.html']");
       newLocationTag.classList.remove("d-none");
     }
-    if (payload.user.perms.include(""))
   }
 });
