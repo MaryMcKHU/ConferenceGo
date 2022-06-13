@@ -1,42 +1,22 @@
 //this is all JSX language (kind of a combination b/w HTML and Javascript)
 // have to put / at the end of a line if a tag doesn't have a close tag
 import Nav from './Nav';
+import AttendeesList from './AttendeesList';
 import React from 'react';
+import LocationForm from './LocationForm';
 
 function App(props) {
   if (props.attendees === undefined) {
     return null;
   }
   return (
-    <React.Fragment>
+    <>
     <Nav />
     <div className="container">
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Conference</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* for (let attendee of props.attendees) {
-            <tr>
-            <td>{ attendee.name }</td>
-            <td>{ attendee.conference }</td>
-            </tr>
-          } */}
-          {props.attendees.map(attendee => {
-            return (
-              <tr key={attendee.href}>
-                <td>{ attendee.name }</td>
-                <td>{ attendee.conference }</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <LocationForm />
+      {/* <AttendeesList attendees={props.attendees} /> */}
     </div>
-    </React.Fragment>
+    </>
   );
 }
 
