@@ -5,7 +5,7 @@ import AttendeesList from './AttendeesList';
 import React from 'react';
 import LocationForm from './LocationForm';
 import ConferenceForm from './ConferenceForm';
-import AttendeeSignupForm from './AttendeeSignupForm';
+import AttendConferenceForm from './AttendConferenceForm';
 
 function App(props) {
   if (props.attendees === undefined) {
@@ -15,7 +15,7 @@ function App(props) {
     <>
     <Nav />
     <div className="container">
-      < AttendeeSignupForm />
+      < AttendConferenceForm />
       {/* <ConferenceForm /> */}
       {/* <LocationForm /> */}
       {/* <AttendeesList attendees={props.attendees} /> */}

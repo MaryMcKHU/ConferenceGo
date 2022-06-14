@@ -12,8 +12,8 @@ class ConferenceForm extends React.Component {
             maxAttendees: '',
             locations: []
         };
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleStartsChange = this.handleStartsChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);           // any time you have a method changing state (or using the keyword "this")
+        this.handleStartsChange = this.handleStartsChange.bind(this);       // the binding is necessary to make 'this' work in the callback
         this.handleEndsChange = this.handleEndsChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleMaxPresentationsChange = this.handleMaxPresentationsChange.bind(this);
