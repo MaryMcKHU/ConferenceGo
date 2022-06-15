@@ -4,7 +4,7 @@ function Nav() {
   return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Conference GO!</a>
+        <a className="navbar-brand" to="/">Conference GO!</a>
         <button className="navbar-toggler" 
         type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,19 +27,19 @@ function Nav() {
             </li>
             <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/attendees/new">
-                  New attendee
+                  Attend Conference
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="presentations/new">
+                <NavLink className="nav-link" aria-current="page" to="/presentations/new">
                   New presentation
                 </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/attendees">
                   Attendee list
                 </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
