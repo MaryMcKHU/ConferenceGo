@@ -96,7 +96,7 @@ def api_list_conferences(request):
             safe=False,
         )
 
-
+@require_http_methods(["GET", "PUT", "DELETE"])
 def api_show_conference(request, pk):
     """
     Returns the details for the Conference model specified
@@ -122,16 +122,20 @@ def api_show_conference(request, pk):
         }
     }
     """
-    conference = Conference.objects.get(id=pk)
-    weather = get_weather_data(
-        conference.location.city,
-        conference.location.state.abbreviation,
-    )
-    return JsonResponse(
-        {"conference": conference, "weather": weather},
-        encoder=ConferenceDetailEncoder,
-        safe=False,
-    )
+    if request.method == "GET":
+        conference = Conference.objects.get(id=pk)
+        weather = get_weather_data(
+            conference.location.city,
+            conference.location.state.abbreviation,
+        )
+        return JsonResponse(
+            {"conference": conference, "weather": weather},
+            encoder=ConferenceDetailEncoder,
+            safe=False,
+        )
+    elif request.method == "DELETE":
+        count, _ = Conference.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
 
 
 @require_http_methods(["GET", "POST"])
