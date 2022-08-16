@@ -44,28 +44,16 @@ class MainPage extends React.Component {
     try {
       const response = await fetch(url);
       if (response.ok) {
-        // Get the list of conferences
         const data = await response.json();
-
-        // Create a list of for all the requests and
-        // add all of the requests to it
         const requests = [];
         for (let conference of data.conferences) {
           const detailUrl = `http://localhost:8000${conference.href}`;
           requests.push(fetch(detailUrl));
         }
 
-        // Wait for all of the requests to finish
-        // simultaneously
         const responses = await Promise.all(requests);
-
-        // Set up the "columns" to put the conference
-        // information into
         const conferenceColumns = [[], [], []];
 
-        // Loop over the conference detail responses and add
-        // each to to the proper "column" if the response is
-        // ok
         let i = 0;
         for (const conferenceResponse of responses) {
           if (conferenceResponse.ok) {
@@ -80,8 +68,6 @@ class MainPage extends React.Component {
           }
         }
 
-        // Set the state to the new list of three lists of
-        // conferences
         this.setState({conferenceColumns: conferenceColumns});
       }
     } catch (e) {
@@ -94,7 +80,7 @@ class MainPage extends React.Component {
       <>
         <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
           <img className="bg-white rounded shadow d-block mx-auto mb-4" src="/logo.svg" alt="" width="600" />
-          <h1 className="display-5 fw-bold">Conference GO!</h1>
+          <h1 className="display-5 fw-bold">ConferenceGO</h1>
           <div className="col-lg-6 mx-auto">
             <p className="lead mb-4">
               The only resource you'll ever need to plan and run your in-person or
