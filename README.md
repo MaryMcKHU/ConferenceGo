@@ -2,7 +2,10 @@
 This is a full-stack web application that assists with conference event-planning. It started out as a monolith and was refactored into multiple microservices with the use of RabbitMQ and pub/sub. The UI allows users to input new locations, input new conference details, input information to attend a conference, and input information to make a presentation proposal. The use can see information about previously inputted conferences on the main page. See "Design" section for screenshots of each part of the UI.
 
 
-# Design
+
+# GHI Design
+
+
 ## Home page
 
 This is the home page that users will see when they get to the website. The user can click on any item within the navigation bar or can click the "Attend a Conference" button. Below that, upcoming conferences that have been entered into the database are listed. Each conference card includes the name of the conference, the location of the conference, an image of the city where the conferene is located, a description of the conference, the number of presentations, the number of maximum attendees, the current weather in that location, and the start and end dates. 
