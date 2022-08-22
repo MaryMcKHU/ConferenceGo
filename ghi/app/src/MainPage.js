@@ -6,19 +6,29 @@ function ConferenceColumn(props) {
     <div className="col">
       {props.list.map(data => {
         const conference = data.conference;
+        const weather = data.weather
+        {console.log(conference)}
+        {console.log(weather)}
         return (
           <div key={conference.href} className="card mb-3 shadow">
             <img src={conference.location.picture_url} className="card-img-top" />
             <div className="card-body">
-              <h5 className="card-title">{conference.name}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">
+              <h5 className="card-title" style={{fontWeight:'bold'}}>{conference.name}</h5>
+              <h6 className="card-subtitle mb-2" style={{color:'red', fontStyle:'italic'}}>
                 {conference.location.name}
               </h6>
               <p className="card-text">
                 {conference.description}
               </p>
+              <p>
+                Presentations: {conference.max_presentations} <br />
+                Maximum attendees: {conference.max_attendees}
+              </p>
+              <p style={{fontWeight:'bold'}}>
+                Current weather: {Math.round(weather.temp)}&deg;F, {weather.description}
+              </p>
             </div>
-            <div className="card-footer">
+            <div className="card-footer" style={{textAlign:'center', color:'blueviolet', fontWeight:'bold'}}>
               {new Date(conference.starts).toLocaleDateString()}
               -
               {new Date(conference.ends).toLocaleDateString()}
@@ -91,8 +101,8 @@ class MainPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container">
-          <h2>Upcoming conferences</h2>
+        <div className="container" style={{backgroundColor: 'whitesmoke'}}>
+          <h2>UPCOMING CONFERENCES</h2>
           <div className="row">
             {this.state.conferenceColumns.map((conferenceList, index) => {
               return (

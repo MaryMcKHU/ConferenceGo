@@ -1,4 +1,5 @@
 import React from 'react';
+import celebration from './celebration.png'
 
 class AttendConferenceForm extends React.Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class AttendConferenceForm extends React.Component {
     }
 
     return (
-      <div className="my-5 container">
+      <div className="my-5 container" style={{backgroundColor:'white'}}>
         <div className="row">
           <div className="col col-sm-auto">
             <img width="300" className="bg-white rounded shadow d-block mx-auto mb-4" src="/logo.svg" />
@@ -130,8 +131,9 @@ class AttendConferenceForm extends React.Component {
                   </div>
                   <button className="btn btn-lg btn-primary">I'm going!</button>
                 </form>
-                <div className={messageClasses} id="success-message">
+                <div className={messageClasses} id="success-message" style={{paddingTop:'40px', paddingBottom:'40px', fontSize:'30px', textAlign:'center'}}>
                   Congratulations! You're all signed up!
+                      <img src={celebration} style={{paddingTop:'40px', paddingBottom:'40px', borderRadius:20, justifyContent:'center'}}></img>
                 </div>
               </div>
             </div>
