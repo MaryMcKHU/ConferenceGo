@@ -7,8 +7,6 @@ function ConferenceColumn(props) {
       {props.list.map(data => {
         const conference = data.conference;
         const weather = data.weather
-        {console.log(conference)}
-        {console.log(weather)}
         return (
           <div key={conference.href} className="card mb-3 shadow">
             <img src={conference.location.picture_url} className="card-img-top" />
@@ -25,7 +23,7 @@ function ConferenceColumn(props) {
                 Maximum attendees: {conference.max_attendees}
               </p>
               <p style={{fontWeight:'bold'}}>
-                Current weather: {Math.round(weather.temp)}&deg;F, {weather.description}
+                Currently {Math.round(weather.temp)}&deg;F, {weather.description}
               </p>
             </div>
             <div className="card-footer" style={{textAlign:'center', color:'blueviolet', fontWeight:'bold'}}>

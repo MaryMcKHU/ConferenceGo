@@ -34,7 +34,7 @@ function App(props) {
         <Route path="presentations">
           <Route path="new" element={<PresentationForm />} />
         </Route>
-        <Route path="attendees" element={<AttendeesList />} />
+        <Route path="attendees" element={<AttendeesList attendees={props.attendees}/>} />
       </Routes>
     </BrowserRouter>
   );

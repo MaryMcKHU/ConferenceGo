@@ -18,7 +18,7 @@ function Nav() {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/attendees/new">
-                  Attend Conference
+                  Attend conference
                 </NavLink>
             </li>
             <li className="nav-item">
